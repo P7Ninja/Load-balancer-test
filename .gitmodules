@@ -1,0 +1,9 @@
+[submodule "Food-Service"]
+	path = Food-Service
+	url = https://github.com/P7Ninja/Food-Service
+[submodule "Inventory-Service"]
+	path = Inventory-Service
+	url = https://github.com/P7Ninja/Inventory-Service
+[submodule "Recipe-Service"]
+	path = Recipe-Service
+	url = https://github.com/P7Ninja/Recipe-Service

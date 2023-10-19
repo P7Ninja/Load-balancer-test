@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   foodservice:
-    hostname: foodservice
     build:
       context: Food-Service
       dockerfile: FoodService/Dockerfile
@@ -39,12 +38,13 @@ services:
     expose:
       - 8000
     deploy:
-      replicas: 2
 
   reverse-proxy:
     image: nginx:latest
     depends_on:
       - foodservice
+      - inventoryservice
+      - recipeservice
     ports:
       - 4000:4000
     volumes:
