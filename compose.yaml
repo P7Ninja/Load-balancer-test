@@ -7,15 +7,15 @@ services:
       dockerfile: FoodService/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=aspnetapp
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_URLS=http://+
+      # - ASPNETCORE_Kestrel__Certificates__Default__Password=aspnetapp
+      # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     expose:
-      - 443
+      - 80
     volumes:
       - ~/.aspnet/https:/https:ro
     deploy:
-      replicas: 3
+      replicas: 1
 
   inventoryservice:
     build:
@@ -23,11 +23,11 @@ services:
       dockerfile: InventoryService/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=aspnetapp
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_URLS=http://+
+      # - ASPNETCORE_Kestrel__Certificates__Default__Password=aspnetapp
+      # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     expose:
-      - 443
+      - 80
     volumes:
       - ~/.aspnet/https:/https:ro
 
@@ -36,9 +36,9 @@ services:
       context: Recipe-Service
       dockerfile: Dockerfile
     expose:
-      - 8000
+      - 8443
     deploy:
-
+      replicas: 1
   reverse-proxy:
     image: nginx:latest
     depends_on:
