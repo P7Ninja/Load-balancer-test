@@ -10,6 +10,7 @@ services:
       - ASPNETCORE_URLS=http://+
       # - ASPNETCORE_Kestrel__Certificates__Default__Password=aspnetapp
       # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - GATEWAY_URL=localhost:4000/foodservice/
     expose:
       - 80
     volumes:
@@ -26,6 +27,7 @@ services:
       - ASPNETCORE_URLS=http://+
       # - ASPNETCORE_Kestrel__Certificates__Default__Password=aspnetapp
       # - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - GATEWAY_URL=localhost:4000/inventoryservice/
     expose:
       - 80
     volumes:
