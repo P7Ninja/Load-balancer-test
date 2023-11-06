@@ -22,3 +22,27 @@
 [submodule "Mealplan-Service"]
 	path = services/mealplan-service
 	url = https://github.com/P7Ninja/Mealplan-Service
+[submodule "client"]
+	path = client
+	url = https://github.com/P7Ninja/Client
+[submodule "apigateway"]
+	path = apigateway
+	url = https://github.com/P7Ninja/APIGateway
+[submodule "services/food-service"]
+	path = services/food-service
+	url = https://github.com/P7Ninja/Food-Service
+[submodule "services/inventory-service"]
+	path = services/inventory-service
+	url = https://github.com/P7Ninja/Inventory-Service
+[submodule "services/recipe-service"]
+	path = services/recipe-service
+	url = https://github.com/P7Ninja/Recipe-Service
+[submodule "services/user-service"]
+	path = services/user-service
+	url = https://github.com/P7Ninja/User-Service
+[submodule "services/health-service"]
+	path = services/health-service
+	url = https://github.com/P7Ninja/Health-Service
+[submodule "services/mealplan-service"]
+	path = services/mealplan-service
+	url = https://github.com/P7Ninja/Mealplan-Service
