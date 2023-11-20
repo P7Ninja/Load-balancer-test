@@ -14,6 +14,9 @@ services:
       USER_SERVICE: "http://userservice:7006"
       FOOD_SERVICE: "http://foodservice:7007"
       INVENTORY_SERVICE: "http://inventoryservice:7008"
+      JWT_SECRET: "verysecretkey"
+      JWT_ALG: "HS256"
+      EXPIRE: 1
     depends_on:
       - healthservice
       #- foodservice
