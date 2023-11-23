@@ -6,7 +6,9 @@ This is the repo for the meal web application for our P7 project, it includes al
 
 To develop on the application do the steps in the setup section and then develop on each submodule and commit from there to test the application use docker-compose with the `docker-compose.yaml` file. 
 
-run the create_data.py script to create test data:
+
+
+run the create_data.py script to create test data, remember to `pip install -r requirements.txt`:
 ```sh
 python ./scripts/create_data.py -o ./database/data.sql
 ```
