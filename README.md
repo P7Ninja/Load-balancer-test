@@ -13,6 +13,11 @@ run the create_data.py script to create test data, remember to `pip install -r r
 python ./scripts/create_data.py -o ./database/data.sql
 ```
 
+To build and start docker in the terminal with output:
+```sh
+docker compose -f docker-compose.yaml build
+docker compose -f docker-compose.yaml up
+```
 
 Start up in background
 ```sh
