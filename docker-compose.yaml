@@ -21,7 +21,7 @@ services:
       - healthservice
       #- foodservice
       #- inventoryservice
-      #- mealplanservice
+      - mealplanservice
       - recipeservice
       - userservice
       - database
@@ -61,18 +61,19 @@ services:
   #    #- GATEWAY_URL=localhost:4000/inventoryservice/
   #  depends_on:
   #    - database
-  #mealplanservice:
-  #  container_name: mealplanservice
-  #  build:
-  #    context: services/mealplan-service
-  #    dockerfile: Dockerfile
-  #  environment:
-  #    HOST: database
-  #    USER: root
-  #    PASSWORD: pass123
-  #    DATABASE: mealplan
-  #  depends_on:
-  #    - database
+  mealplanservice:
+   container_name: mealplanservice
+   build:
+     context: services/mealplan-service
+     dockerfile: Dockerfile
+   environment:
+     HOST: database
+     USER: root
+     PASSWORD: pass123
+     DATABASE: mealplan
+     RECIPE_SERVICE: "http://recipeservice:7005"
+   depends_on:
+     - database
   recipeservice:
     container_name: recipeservice
     build:
