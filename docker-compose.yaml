@@ -19,8 +19,8 @@ services:
       EXPIRE: 1
     depends_on:
       - healthservice
-      #- foodservice
-      #- inventoryservice
+      - foodservice
+      - inventoryservice
       - mealplanservice
       - recipeservice
       - userservice
@@ -37,30 +37,30 @@ services:
       DB_CONN: "mysql+mysqlconnector://root:pass123@database:3306/health"
     depends_on:
       - database
-  #foodservice:
-  #  container_name: foodservice
-  #  build:
-  #    context: services/food-service/
-  #    dockerfile: FoodService/Dockerfile
-  #  environment:
-  #    - ASPNETCORE_ENVIRONMENT=Development
-  #    - ASPNETCORE_URLS=http://+:7007
-  #    - DB_CONN=server=database;port=3306;database=inventory;user=root;password=pass123;
-  #    #- GATEWAY_URL=localhost:4000/foodservice/
-  #  depends_on:
-  #   - database
-  #inventoryservice:
-  #  container_name: inventoryservice
-  #  build:
-  #    context: services/inventory-service
-  #    dockerfile: InventoryService/Dockerfile
-  #  environment:
-  #    - ASPNETCORE_ENVIRONMENT=Development
-  #    - ASPNETCORE_URLS=http://+:7008
-  #    - DB_CONN=server=database;port=3306;database=food;user=root;password=pass123;
-  #    #- GATEWAY_URL=localhost:4000/inventoryservice/
-  #  depends_on:
-  #    - database
+  foodservice:
+    container_name: foodservice
+    build:
+      context: services/food-service/
+      dockerfile: FoodService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7007
+      - DB_CONN=server=database;port=3306;database=food;user=root;password=pass123;
+      #- GATEWAY_URL=localhost:4000/foodservice/
+    depends_on:
+     - database
+  inventoryservice:
+    container_name: inventoryservice
+    build:
+      context: services/inventory-service
+      dockerfile: InventoryService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7008
+      - DB_CONN=server=database;port=3306;database=inventory;user=root;password=pass123;
+      #- GATEWAY_URL=localhost:4000/inventoryservice/
+    depends_on:
+      - database
   mealplanservice:
    container_name: mealplanservice
    build:
